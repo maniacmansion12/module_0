@@ -3,12 +3,27 @@ count = 0
 number = np.random.randint(1, 101)      # загадали число
 
 
-def game_core_v2(number):
-    # Сначала устанавливаем любое random число
-    # а потом уменьшаем или увеличиваем его в зависимости от того, больше оно или меньше нужного.
-    # Функция принимает загаданное число и возвращает число попыток
+def game_core_v3(number):
+
     count = 1
-    predict = np.random.randint(1, 101)
+    predict = 50
+
+    if predict < number:
+        predict += 25
+    else:
+        predict -= 25
+    if predict < number:
+        predict += 12
+    else:
+        predict -= 12
+    if predict < number:
+        predict += 6
+    else:
+        predict -= 6
+    if predict < number:
+        predict += 3
+    else:
+        predict -= 3
 
     while number != predict:
         count += 1
@@ -31,5 +46,4 @@ def score_game(game_core):
     return(score)
 
 
-score_game(game_core_v2)   # в среднем за 33 попытки
-
+score_game(game_core_v3)   # в среднем за 2 попытки
